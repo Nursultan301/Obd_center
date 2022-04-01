@@ -9,6 +9,7 @@ idea
 dist
 db.sqlite3
 
+.env
 venv
 celerybeat-schedule
 
