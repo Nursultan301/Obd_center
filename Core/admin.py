@@ -25,7 +25,7 @@ class FeedbackAdmin(admin.ModelAdmin):
 class AnswerAdmin(admin.ModelAdmin):
     """Ответ"""
 
-    list_display = ('text', 'right', 'questionId')
+    list_display = ('text', 'right', 'question')
 
 
 class QuestionsInline(admin.TabularInline):
@@ -36,5 +36,5 @@ class QuestionsInline(admin.TabularInline):
 @admin.register(Question)
 class BookAdmin(admin.ModelAdmin):
     """Вопрос"""
-    list_display = ('text', 'image', 'tickets')
+    list_display = ('text', 'image', 'tickets', 'created_at')
     inlines = [QuestionsInline]

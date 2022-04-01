@@ -6,8 +6,11 @@
 </head>
 <body>
 <h1> Привет Обд центр </h1>
-{{ obj }}<hr>
-{{ test }}<hr>
-{{ test1 }}
+{{ obj.description }}<hr>
+{% for test in tests %}
+{{ test.text }}
+{{ test. }}
+{% endfor %}
+
 </body>
 </html>

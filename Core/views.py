@@ -7,12 +7,12 @@ from .models import Announcements, Question, Answer
 class AnnouncementsView(ListView):
     model = Announcements
     template_name = 'Core/index.html'
-    context_object_name = 'obj'
+    context_object_name = 'objs'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, object_list=None, **kwargs):
         context = super(AnnouncementsView, self).get_context_data(**kwargs)
-        context['test'] = Question.objects.all()
-        context['test1'] = Answer.objects.all()
+        context['tests'] = Question.objects.all()
+        context['tests1'] = Answer.objects.all()
         return context
 
 
