@@ -59,7 +59,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     """Ответ"""
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, verbose_name="Вопросы")
     text = models.CharField('Текст', max_length=255)
     right = models.BooleanField('Правильно')
 

@@ -34,7 +34,7 @@ class QuestionsInline(admin.TabularInline):
 
 
 @admin.register(Question)
-class BookAdmin(admin.ModelAdmin):
+class QuestionAdmin(admin.ModelAdmin):
     """Вопрос"""
     list_display = ('text', 'image', 'tickets', 'created_at')
     inlines = [QuestionsInline]
