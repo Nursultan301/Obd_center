@@ -1,0 +1,6 @@
+asgiref==3.5.0
+Django==3.2
+Pillow==9.0.1
+psycopg2-binary==2.9.3
+pytz==2022.1
+sqlparse==0.4.2
