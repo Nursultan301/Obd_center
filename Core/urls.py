@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import test
+from .views import AnnouncementsView
 
 urlpatterns = [
-    path('', test)
+    path('', AnnouncementsView.as_view())
 ]

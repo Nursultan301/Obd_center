@@ -1,6 +1,40 @@
 from django.contrib import admin
 
-from .models import Announcements, Feedback
+from .models import Announcements, Feedback, Answer, Question, Tickets
 
-admin.site.register(Announcements)
-admin.site.register(Feedback)
+
+@admin.register(Tickets)
+class TicketsAdmin(admin.ModelAdmin):
+    """ Билеты """
+    pass
+
+
+@admin.register(Announcements)
+class AnnouncementsAdmin(admin.ModelAdmin):
+    """ Объявления """
+    pass
+
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    """ Обратная связь """
+    pass
+
+
+@admin.register(Answer)
+class AnswerAdmin(admin.ModelAdmin):
+    """Ответ"""
+
+    list_display = ('text', 'right', 'questionId')
+
+
+class QuestionsInline(admin.TabularInline):
+    model = Answer
+    extra = 1
+
+
+@admin.register(Question)
+class BookAdmin(admin.ModelAdmin):
+    """Вопрос"""
+    list_display = ('text', 'image', 'tickets')
+    inlines = [QuestionsInline]
