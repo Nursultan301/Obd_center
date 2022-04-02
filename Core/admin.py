@@ -1,6 +1,15 @@
+from django import forms
 from django.contrib import admin
-
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from .models import Announcements, Feedback, Answer, Question, Tickets
+
+
+class QuestionAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Question
+        fields = '__all__'
 
 
 @admin.register(Tickets)
@@ -37,4 +46,5 @@ class QuestionsInline(admin.TabularInline):
 class QuestionAdmin(admin.ModelAdmin):
     """Вопрос"""
     list_display = ('text', 'image', 'tickets', 'created_at')
+    form = QuestionAdminForm
     inlines = [QuestionsInline]
