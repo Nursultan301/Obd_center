@@ -1,5 +1,6 @@
 asgiref==3.5.0
 Django==3.2
+django-degit bug-toolbar==3.2.4
 Pillow==9.0.1
 psycopg2-binary==2.9.3
 python-dotenv==0.20.0
