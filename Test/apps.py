@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class CoreConfig(AppConfig):
+class TestConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'Core'
-
+    name = 'Test'
+    verbose_name = 'ОБД центр'

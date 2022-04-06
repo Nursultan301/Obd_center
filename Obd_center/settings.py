@@ -29,8 +29,10 @@ INSTALLED_APPS = [
     "debug_toolbar",
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework',
 
     'Core',
+    'Test',
 ]
 
 MIDDLEWARE = [
