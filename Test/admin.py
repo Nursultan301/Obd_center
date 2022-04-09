@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from .models import Announcements, Feedback, Answer, Question, Tickets
+from .models import Announcements, Feedback, Answer, Question, Ticket
 
 
 class QuestionAdminForm(forms.ModelForm):
@@ -12,7 +12,7 @@ class QuestionAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
-@admin.register(Tickets)
+@admin.register(Ticket)
 class TicketsAdmin(admin.ModelAdmin):
     """ Билеты """
     pass
@@ -30,7 +30,7 @@ class FeedbackAdmin(admin.ModelAdmin):
     pass
 
 
-class QuestionsInline(admin.TabularInline):
+class AnswerInline(admin.TabularInline):
     model = Answer
     extra = 1
 
@@ -38,6 +38,5 @@ class QuestionsInline(admin.TabularInline):
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     """Вопрос"""
-    list_display = ('title', 'img', 'tickets', 'created_at')
-    form = QuestionAdminForm
-    inlines = [QuestionsInline]
+    list_display = ('title', 'img', 'ticket', 'created_at')
+    inlines = [AnswerInline]

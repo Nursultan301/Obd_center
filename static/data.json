@@ -1,0 +1,26 @@
+{
+    "countQuest": 2,
+    "quests": [
+        {
+            "img": "/media/Obd_photo/upl_1613738977_170044_uyqqc.jpg",
+            "title": "Вопрос 1",
+            "answer": [
+                "Ответ 1.1",
+                "Ответ 1.2",
+                "Ответ 1.3"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "img": "none",
+            "title": "Вопрос  2",
+            "answer": [
+                "Ответ 2.1",
+                "Ответ 2.2",
+                "Ответ 2.3",
+                "Ответ 2.4"
+            ],
+            "correctAnswer": 1
+        }
+    ]
+}

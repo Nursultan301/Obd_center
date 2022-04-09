@@ -6,7 +6,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("Core.urls")),
-    path('api/v1/', include("Test.urls")),
+    path('test/', include("Test.urls")),
     path('api/', include("rest_framework.urls")),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

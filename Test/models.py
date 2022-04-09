@@ -1,16 +1,7 @@
+import os
+
 from django.db import models
-
-
-class Tickets(models.Model):
-    """ Билеты """
-    title = models.CharField(max_length=200, verbose_name='Билеты')
-
-    class Meta:
-        verbose_name = 'Билеты'
-        verbose_name_plural = 'Билеты'
-
-    def __str__(self):
-        return self.title
+from django.urls import reverse
 
 
 class Announcements(models.Model):
@@ -41,13 +32,34 @@ class Feedback(models.Model):
         return self.name
 
 
+class Ticket(models.Model):
+    """ Билеты """
+    title = models.CharField(max_length=200, verbose_name='Билеты')
+
+    def get_absolute_url(self):
+        return reverse("ticket_detail", kwargs={"pk": self.pk})
+    
+    def get_json_url(self):
+        return reverse("ticket_json", kwargs={"pk": self.pk})
+
+    class Meta:
+        verbose_name = 'Билеты'
+        verbose_name_plural = 'Билеты'
+
+    def __str__(self):
+        return self.title
+
+
 class Question(models.Model):
     """Вопрос"""
-    tickets = models.ForeignKey(Tickets, on_delete=models.CASCADE, verbose_name='Билеты')
+    ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE, verbose_name='Билеты')
     img = models.ImageField(upload_to='Obd_photo/', blank=True, null=True)
     title = models.TextField(verbose_name='Текст вопроса')
     created_at = models.DateTimeField('Создано', auto_now_add=True)
     updated_at = models.DateTimeField('Обновлено', auto_now=True)
+
+    def filename(self):
+        return os.path.basename(self.img.name)
 
     class Meta:
         verbose_name = 'Вопрос'

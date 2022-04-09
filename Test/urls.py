@@ -1,8 +1,9 @@
+from unicodedata import name
 from django.urls import path
 
-from .views import QuestionDetailView, AnswerDetailView
+from .views import TicketDetailView, TicketDetailJsonView
 
 urlpatterns = [
-    path('test/', QuestionDetailView.as_view()),
-    path('question/', AnswerDetailView.as_view())
+    path('ticket/<int:pk>/', TicketDetailView.as_view(), name="ticket_detail"),
+    path('json/ticket/<int:pk>/', TicketDetailJsonView.as_view(), name="ticket_json"),
 ]
