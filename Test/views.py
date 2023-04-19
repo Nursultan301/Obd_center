@@ -8,7 +8,7 @@ from .models import Question, Answer, Ticket
 
 
 class TicketDetailView(TemplateView):
-    template_name = 'Core/index.html'
+    template_name = 'Test/index.html'
 
     def get(self, request, pk):
         ticket = Ticket.objects.get(pk=pk)
